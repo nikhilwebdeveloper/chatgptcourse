@@ -1,6 +1,10 @@
-*{
-    /* border: 1px solid red; */
+:root {
+    --primary-color: rgb(41, 41, 44);
+    --secondary-color: white;
+    --accent-color: rgb(70, 70, 75);
+    --light-color: rgb(183, 183, 183);
 }
+
 
 *{
     font-family:Arial, Helvetica, sans-serif;
@@ -8,17 +12,20 @@
 }
 body{
     margin: 0;
-    background-color: rgb(41, 41, 44);
+    background-color: var(--primary-color);
+    transition: background-color 0.5s, color 0.5s;
 }
 header{
-    color:white;
+    position: sticky;
+    top: 0;
+    color:var(--secondary-color);
     width: 100%;
 }
 header h1{
     display: none;
 }
 nav{
-    background-color: rgb(70, 70, 75);
+    background-color: var(--accent-color);
     display: flex;
 }
 #name{
@@ -31,7 +38,7 @@ nav ul{
     align-content: center;
 }
 nav ul li{
-    color:white;
+    color:var(--secondary-color);
     text-decoration: none;
     list-style: none;
     padding-right: 35px;
@@ -51,23 +58,27 @@ li:hover{
 
 section{
     padding: 0 20% 0 20%;
-    color:white;
+    color:var(--secondary-color);
     margin: 20px 0 20px 0;
 }
 
 section h2{
-    color:white;
+    color:var(--secondary-color);
     text-align: center;
     margin-top: 20px;
 }
+section p{
+    font-size: 20px;
+    line-height: 26px;
+}
 section a{
     display: inline-block;
-    background-color: white;
+    background-color: var(--secondary-color);
     font-size: 25px;
     padding: 5px;
     margin-top: 25px;
     transition: 0.2s;
-    /* box-shadow: rgb(70, 70, 75) 6px 6px; */
+    /* box-shadow: var(--accent-color) 6px 6px; */
 }
 section a:hover{
     border-radius: 8px;
@@ -76,7 +87,7 @@ section a:hover{
 /* FOOTER */
 
 footer{
-    background-color: rgb(70, 70, 75);
+    background-color: var(--accent-color);
     /* position: absolute;
     bottom: 0; */
     /* margin-top:206px; */
@@ -84,7 +95,8 @@ footer{
 footer div{
     display: inline-block;
     width: 32.33%;
-    color: white;
+    color: var(--secondary-color);
+    font-size: 18px;
 }
 footer h4{
     /* text-align: center; */
@@ -93,6 +105,97 @@ footer h4{
 footer p{
     text-align: left;
     padding-left: 40px;
+}
+
+/* GO UP BUTTON  */
+html{
+    scroll-behavior: smooth;
+}
+.circle-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    /* background-color: #4CAF50; */
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.circle-button i {
+    font-size: 32px;
+}
+  
+.circle-button:hover {
+    /* background-color: #45a049; */
+}
+
+/* THEME CHANGE */
+.theme-button {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    /* background-color: #4CAF50; */
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s;
+  }
+  
+  .theme-button i {
+    font-size: 24px;
+}
+
+body.dark-mode .theme-button{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+body.dark-mode .circle-button{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+body.light-mode{
+    background-color: var(--secondary-color);
+}
+body.dark-mode h2{
+    color: var(--primary-color);
+}
+body.dark-mode section p{
+    color: var(--primary-color);
+}
+body.dark-mode section a{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+body.dark-mode nav{
+    background-color: var(--light-color);
+}
+body.dark-mode header{
+    color: var(--primary-color);
+}
+body.dark-mode header li{
+    color: var(--primary-color);
+}
+body.dark-mode footer{
+    background-color: var(--light-color);
+}
+body.dark-mode footer div{
+    color: var(--primary-color);
 }
 
 /* MOBILE RESPONSIVE */
@@ -107,7 +210,7 @@ footer p{
         display: none;
     }
     header{
-        background-color: rgb(70, 70, 75);
+        background-color: var(--accent-color);
         text-align: center;
     }
     header h1{
